@@ -72,8 +72,6 @@ function setProduct(name, img, price, productIndex) {
 }
 
 function addToCart(event) {
-    if (document.querySelector('#cart > h3')) { document.querySelector('#cart > h3').remove(); }
-
     const newProd = document.createElement('div');
     newProd.setAttribute('class', 'new_prod');
 
@@ -105,9 +103,8 @@ function addToCart(event) {
         amount += products[i].price * productsInCart[i];
     }
 
-    const amountResult = document.createElement('h3');
+    const amountResult = document.querySelector('#cart > h3');
     amountResult.innerText = `Amount = U$ ${amount.toFixed(2)}`;
-    cartAside.appendChild(amountResult);
 
     cartAside.scroll(0, cartAside.scrollHeight);
 }
